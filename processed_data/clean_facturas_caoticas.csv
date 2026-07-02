@@ -1,0 +1,5 @@
+transaction_id,product_name,revenue,store_location
+TX-1001,Laptop Dell,1200.5,Caracas
+TX-1002,Teclado Mecanico,85.0,Puerto Ordaz
+TX-1003,Monitor Gamer,350.0,Lecheria
+TX-1004,Silla Ergonomica,280.0,Caracas

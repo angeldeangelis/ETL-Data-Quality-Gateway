@@ -1,0 +1,12 @@
+transaction_id,product_name,revenue
+TX_2026_A001,Enterprise Cloud Infrastructure Tier-4,450000.0
+,Orphaned Vector Stream Missing ID,1500.0
+TX_2026_A002,Automated Data Pipeline Node,12500.5
+,Null Core Telemetry Dump,0.0
+TX_2026_A005,Predictive Analytics Engine Pro,10500.25
+TX_2026_A010,Business Intelligence Dashboard UI,21500.0
+TX_2026_A003,ML Model Training Cluster v2,89000.0
+TX_2026_A015,Serverless Execution Router,95.0
+TX_2026_A020,Graph Database Ledger Core,19500.0
+TX_2026_A027,Semantic Search Vector Index,1100.5
+,Corrupt Memory Vector Drop,99.99
