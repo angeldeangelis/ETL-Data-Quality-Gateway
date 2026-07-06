@@ -1,6 +1,6 @@
 import logging
 import pandas as pd
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy.dialects.postgresql import insert
 
 logger = logging.getLogger("DataGateway.Database")
@@ -47,6 +47,27 @@ class PostgreSQLManager:
     def __init__(self, connection_uri: str):
         # SQLAlchemy engine inherently manages the underlying connection pooling
         self.engine = create_engine(connection_uri)
+        
+    def prepare_db_schema(self) -> None:
+        """
+        Guarantees the physical schema exists in PostgreSQL with the mandatory
+        PRIMARY KEY constraint required for idempotent UPSERT operations.
+        """
+        query = """
+        CREATE TABLE IF NOT EXISTS stg_transaction (
+            transaction_id VARCHAR(100) PRIMARY KEY,
+            product_name VARCHAR(255),
+            revenue NUMERIC(18, 2)
+        );
+        """
+        try:
+            # engine.begin() opens a transaction block and auto-commits if no exceptions occur
+            with self.engine.begin() as conn:
+                conn.execute(text(query))
+            logger.info("Database Schema Guard: 'stg_transaction' table verified/created with PRIMARY KEY.")
+        except Exception as e:
+            logger.error(f"Failed to initialize database schema: {e}")
+            raise e
         
     def insert_clean_data(self, df: pd.DataFrame, table_name: str) -> None:
         """
