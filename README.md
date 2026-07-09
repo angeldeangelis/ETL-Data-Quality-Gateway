@@ -45,6 +45,8 @@ The repository is modularized to support Separation of Concerns (SoC) and mainta
 ├── processed_data/         # High-fidelity datasets (Post-validation)
 ├── quarantine_storage/     # Anomaly isolation and forensic log storage
 ├── raw_data/               # Immutable ingestion landing zone
+├── tests/
+│   └── generate_stress_data.py #Stress test data generator (Over 100.000 rows of data)
 ├── main.py                 # System entry point and orchestrator
 └── watch_gateway.py        # Sentinel Observer implementation
 
