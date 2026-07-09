@@ -1,0 +1,14 @@
+# Data Manipulation & Analysis
+pandas>=2.2.0
+
+# Database Connectivity
+psycopg2-binary>=2.9.9
+
+# ORM & Schema Guarding
+sqlalchemy>=2.0.0
+
+# Security & Credential Management
+python-dotenv>=1.0.1
+
+# Event-Driven Architecture
+watchdog>=4.0.0
